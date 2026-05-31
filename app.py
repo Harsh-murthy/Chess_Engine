@@ -205,9 +205,9 @@ def _piece_char(board, s):
     ch = names.get(board.pieces[s], '?')
     return ch.upper() if board.colors[s] == WHITE else ch
 
-
 if __name__ == '__main__':
     import os
-    os.makedirs('static', exist_ok=True)
-    print("♟  Chess Engine Server starting at http://localhost:5000")
-    app.run(debug=False, host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    print(f"♟  Chess Engine Server starting at http://localhost:{port}")
+    app.run(debug=False, host='0.0.0.0', port=port)
+
